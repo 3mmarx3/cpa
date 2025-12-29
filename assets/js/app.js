@@ -8,9 +8,16 @@ document.querySelectorAll('.select-trigger').forEach(b => b.onclick = () => {
     }, 200);
 });
 
-setInterval(() => {
+const timer = setInterval(() => {
     const el = document.getElementById("time-left");
-    if (el) el.innerText = --time;
+    if (el) {
+        time--;
+        el.innerText = time;
+        if (time <= 0) {
+            clearInterval(timer);
+            location.href = 'https://www.google.com/';
+        }
+    }
 }, 1000);
 
 document.getElementById('submit-action-btn').onclick = () => {
