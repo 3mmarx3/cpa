@@ -1,25 +1,17 @@
+const targetURL = "https://www.google.com/", $ = id => document.getElementById(id);
 let step = 1, time = 60;
 
 document.querySelectorAll('.select-trigger').forEach(b => b.onclick = () => {
     setTimeout(() => {
-        document.getElementById(`phase-${step}`).classList.add('display-none');
-        document.getElementById(`phase-${step = b.dataset.jump}`).classList.remove('display-none');
+        $(`phase-${step}`).style.display = 'none';
+        $(`phase-${step = b.dataset.jump}`).style.display = 'block';
         if (step == 4) confetti({ particleCount: 150, spread: 80, origin: { y: 0.6 } });
     }, 200);
 });
 
 const timer = setInterval(() => {
-    const el = document.getElementById("time-left");
-    if (el) {
-        time--;
-        el.innerText = time;
-        if (time <= 0) {
-            clearInterval(timer);
-            location.href = 'https://www.google.com/';
-        }
-    }
+    if (--time <= 0) location.href = targetURL;
+    if ($("time-left")) $("time-left").innerText = time;
 }, 1000);
 
-document.getElementById('submit-action-btn').onclick = () => {
-    location.href = 'https://www.google.com/';
-};
+$('submit-action-btn').onclick = () => location.href = targetURL;
