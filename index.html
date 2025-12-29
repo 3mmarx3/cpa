@@ -1,99 +1,81 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CPA Page - 3 Step Quiz</title>    
-    <meta name="description" content="Answer 3 quick questions in under 30 seconds to qualify for your exclusive offer and get instant access to [Key Benefit]. Start the quiz now!" />
+    
+    <title>Limited Time Reward | Exclusive Access Verification 2024</title>    
+    <meta name="description" content="Claim your exclusive reward today. Complete our 30-second verification survey to unlock instant access to premium offers. Limited slots available." />
+    <meta name="keywords" content="exclusive reward, claim offer, instant access, reward verification" />
+    <link rel="canonical" href="https://yourdomain.com/" />
+
+    <meta property="og:title" content="Exclusive Reward Access" />
+    <meta property="og:description" content="Complete 3 quick steps to unlock your offer." />
+    <meta property="og:image" content="./assets/img/og-image.jpg" />
+    <meta property="og:url" content="https://yourdomain.com/" />
+    <meta property="og:type" content="website" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Claim Your Exclusive Reward" />
+
+  
+
     <link rel="stylesheet" href="./assets/css/style.css" />
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js" defer></script>
   </head>
   <body>
-    <div class="logo" style="background-image: url(./assets/img/logo.png)"></div>
-    <aside>
-      <header class="page-header">
-        <h1>Answer 3 Quick Questions to Get Started!</h1>
-        <p class="note">
-          It won't take more than <span id="count">60</span> seconds.
+    <div class="brand-mark" style="background-image: url(./assets/img/logo.png)"></div>
+    
+    <section class="wrapper-area">
+      <header class="top-heading">
+        <h1 class="main-title">Claim Your Exclusive Reward!</h1>
+        <p class="timer-note">
+          Hurry up! This offer expires in <span id="time-left">60</span> seconds.
         </p>
       </header>
 
-      <main class="container">
-        <div id="quiz-container">
-          <div id="step-1" class="question-step active">
-            <sup class="Question"> **Question 1 of 3:** </sup>
-            <p class="question-title">
-              What is your primary goal for visiting this page?
-            </p>
-            <div class="options-group">
-              <button class="answer-btn" data-next-step="2">
-                I am looking for detailed information
-              </button>
-              <button class="answer-btn" data-next-step="2">
-                I want immediate consultation
-              </button>
-              <button class="answer-btn" data-next-step="2">
-                I am comparing available options
-              </button>
+      <main class="content-box">
+        <div id="survey-wrapper">
+          <article id="phase-1" class="quiz-unit visible-block">
+            <span class="step-indicator">Step 1 of 3</span>
+            <h2 class="query-text">Have you ever used our services before?</h2>
+            <div class="choice-stack">
+              <button class="select-trigger" data-jump="2">Yes, I am a regular user</button>
+              <button class="select-trigger" data-jump="2">No, this is my first time</button>
+              <button class="select-trigger" data-jump="2">I don't remember</button>
             </div>
-          </div>
+          </article>
 
-          <div id="step-2" class="question-step hidden">
-            <sup class="Question"> **Question 2 of 3:** </sup>
-            <p class="question-title">
-              Are you ready to start now, or do you need extra time?
-            </p>
-            <div class="options-group">
-              <button class="answer-btn" data-next-step="3">
-                Ready to start now
-              </button>
-              <button class="answer-btn" data-next-step="3">
-                I will start within the next week
-              </button>
+          <article id="phase-2" class="quiz-unit display-none">
+            <span class="step-indicator">Step 2 of 3</span>
+            <h2 class="query-text">How did you hear about this special promotion?</h2>
+            <div class="choice-stack">
+              <button class="select-trigger" data-jump="3">Social Media</button>
+              <button class="select-trigger" data-jump="3">Friend or Family</button>
+              <button class="select-trigger" data-jump="3">Search Engine</button>
             </div>
-          </div>
+          </article>
 
-          <div id="step-3" class="question-step hidden">
-            <sup class="Question"> **Question 3 of 3:** </sup>
-            <p class="question-title">Which age group do you belong to?</p>
-            <div class="options-group">
-              <button class="answer-btn" data-next-step="4">
-                Under 25 years old
-              </button>
-              <button class="answer-btn" data-next-step="4">
-                25 - 40 years old
-              </button>
-              <button class="answer-btn" data-next-step="4">
-                Over 40 years old
-              </button>
+          <article id="phase-3" class="quiz-unit display-none">
+            <span class="step-indicator">Step 3 of 3</span>
+            <h2 class="query-text">What is your preferred method of receiving updates?</h2>
+            <div class="choice-stack">
+              <button class="select-trigger" data-jump="4">Email Notifications</button>
+              <button class="select-trigger" data-jump="4">SMS Message</button>
+              <button class="select-trigger" data-jump="4">I prefer no updates</button>
             </div>
-          </div>
+          </article>
 
-          <div id="step-4" class="question-step hidden final-step">
-            <p class="question-title finished-text">
-              **Congratulations!** You have completed the questions.
-            </p>
-            <a href="https://www.google.com/">
-              <button id="final-cta-btn">Go to the Offer Page Now</button>
+          <article id="phase-4" class="quiz-unit display-none last-action">
+            <h2 class="query-text success-msg">Verification Successful! Your reward is ready.</h2>
+            <a href="https://www.google.com/" rel="nofollow">
+              <button id="submit-action-btn">Unlock My Access Now</button>
             </a>
-          </div>
+          </article>
         </div>
       </main>
-    </aside>
+    </section>
 
     <script src="./assets/js/app.js"></script>
-
-  <script>
-  let s = 60;
-  const el = document.getElementById("count");
-
-  const timer = setInterval(() => {
-    el.textContent = --s;
-    if (s <= 0) {
-      clearInterval(timer);
-      window.location.href = "https://www.google.com";
-    }
-  }, 1000);
-</script>
   </body>
 </html>

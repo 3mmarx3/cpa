@@ -1,50 +1,18 @@
-const quizContainer = document.getElementById('quiz-container');
-const answerButtons = document.querySelectorAll('.answer-btn');
-const finalCtaButton = document.getElementById('final-cta-btn');
+let step = 1, time = 60;
 
-const finalRedirectURL = 'https://www.google.com/';
-
-let currentStep = 1;
-
-function triggerConfetti() {
-    confetti({
-        particleCount: 100,
-        spread: 70,
-        origin: { y: 0.6 }
-    });
-}
-
-function showNextStep(nextStepNumber) {
-    const currentStepElement = document.getElementById(`step-${currentStep}`);
-    if (currentStepElement) {
-        currentStepElement.classList.add('hidden');
-        currentStepElement.classList.remove('active');
-    }
-
-    currentStep = nextStepNumber;
-
-    const nextStepElement = document.getElementById(`step-${currentStep}`);
-    if (nextStepElement) {
-        nextStepElement.classList.remove('hidden');
-        nextStepElement.classList.add('active');
-
-        if (currentStep === 4) {
-            triggerConfetti();
-        }
-    }
-}
-
-answerButtons.forEach(button => {
-    button.addEventListener('click', (event) => {
-        event.preventDefault();
-        const nextStep = parseInt(event.target.dataset.nextStep);
-
-        setTimeout(() => {
-            showNextStep(nextStep);
-        }, 200);
-    });
+document.querySelectorAll('.select-trigger').forEach(b => b.onclick = () => {
+    setTimeout(() => {
+        document.getElementById(`phase-${step}`).classList.add('display-none');
+        document.getElementById(`phase-${step = b.dataset.jump}`).classList.remove('display-none');
+        if (step == 4) confetti({ particleCount: 150, spread: 80, origin: { y: 0.6 } });
+    }, 200);
 });
 
-finalCtaButton.addEventListener('click', () => {
-    window.location.href = finalRedirectURL;
-});
+setInterval(() => {
+    const el = document.getElementById("time-left");
+    if (el) el.innerText = --time;
+}, 1000);
+
+document.getElementById('submit-action-btn').onclick = () => {
+    location.href = 'https://www.google.com/';
+};
