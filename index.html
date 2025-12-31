@@ -4,15 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MTN | Exclusive Reward Verification 2024</title>
-    <meta name="description" content="Claim your MTN reward today." />
-    <link rel="preload" as="image" href="./assets/img/logo.png" />
-    <link rel="canonical" href="https://www.mtn.com/" />
-    <meta property="og:title" content="MTN Exclusive Reward Access" />
-    <meta property="og:description" content="Complete 3 quick steps to unlock your MTN special offer." />
-    <meta property="og:image" content="./assets/img/mtn-og.jpg" />
-    <meta property="og:url" content="https://www.mtn.com/" />
-    <meta property="og:type" content="website" />
-    <meta name="twitter:card" content="summary_large_image" />
     <link rel="stylesheet" href="./assets/css/style.css" />
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js" defer></script>
 </head>
@@ -20,16 +11,16 @@
     <div class="brand-mark"></div>
     
     <section class="wrapper-area">
-        <header class="top-heading">
+        <header class="top-heading" id="top-timer-section">
             <h1 class="main-title">Claim Your MTN Exclusive Reward!</h1>
             <p class="timer-note">
-                Hurry up! This MTN offer expires in <span id="time-left">60</span> seconds.
+                Hurry up! This MTN offer expires in <span id="time-left-header">60</span> seconds.
             </p>
         </header>
 
-        <main class="content-box">
+        <main class="content-box" id="main-container">
             <div id="survey-wrapper">
-                <article id="phase-1" class="quiz-unit visible-block">
+                <article id="phase-1" class="quiz-unit" style="display: block;">
                     <span class="step-indicator">Step 1 of 3</span>
                     <h2 class="query-text">Are you currently an active MTN subscriber?</h2>
                     <div class="choice-stack">
@@ -39,17 +30,16 @@
                     </div>
                 </article>
 
-                <article id="phase-2" class="quiz-unit display-none">
+                <article id="phase-2" class="quiz-unit" style="display: none;">
                     <span class="step-indicator">Step 2 of 3</span>
                     <h2 class="query-text">How long have you been with the MTN network?</h2>
                     <div class="choice-stack">
                         <button class="select-trigger" data-jump="3">Less than 1 year</button>
-                        <button class="select-trigger" data-jump="3">1 to 5 years</button>
                         <button class="select-trigger" data-jump="3">More than 5 years</button>
                     </div>
                 </article>
 
-                <article id="phase-3" class="quiz-unit display-none">
+                <article id="phase-3" class="quiz-unit" style="display: none;">
                     <span class="step-indicator">Step 3 of 3</span>
                     <h2 class="query-text">Which MTN reward would you prefer to unlock?</h2>
                     <div class="choice-stack">
@@ -59,14 +49,16 @@
                     </div>
                 </article>
 
-                <article id="phase-4" class="quiz-unit display-none last-action">
-                    <h2 class="query-text success-msg">Congratulations! Your reward is ready to be activated. Click the button below to proceed.</h2>
-                    <button id="submit-action-btn">Activate My Reward Now</button>
+                <article id="phase-4" class="quiz-unit" style="display: none;">
+                    <div class="bonus-timer-circle"><span id="time-left">60</span></div>
+                    <h2 class="bonus-title">HURRY UP!</h2>
+                    <p class="bonus-desc">Claim your bonus before time runs out!</p>
+                    <button id="submit-action-btn">GET BONUS</button>
                 </article>
             </div>
         </main>
     </section>
 
-   <script src="./assets/js/app.js"></script>
+<script src="./assets/js/app.js"></script>
 </body>
 </html>
