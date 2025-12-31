@@ -103,10 +103,14 @@ body {
     font-size: 1.5rem;
     font-weight: 700
 }
-
+h2.bonus-title{
+    font-size: 1.4rem;
+    color: var(--success-ui);
+        margin-bottom: 15px;
+}
 
 .bonus-desc {
-font-size: 1.4rem;
+font-size: 1.3rem;
     margin-bottom: 25px;
     opacity: .9;
     font-weight: 700;
