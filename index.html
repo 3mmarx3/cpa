@@ -84,11 +84,12 @@
       }
     </style>
   </head>
-  <body class="h-[100dvh] w-full flex flex-col relative overflow-hidden">
+  <!-- تم تعديل body ليسمح بالتمرير (scroll) بوضع min-h و overflow-x-hidden بدلا من overflow-hidden -->
+  <body class="min-h-[100dvh] w-full flex flex-col relative overflow-x-hidden">
     <header class="w-full bg-white border-b-2 border-gray-100 flex-none">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-24 md:h-28">
-          <!-- Logo & Brand (تم تكبير اللوجو هنا) -->
+          <!-- Logo & Brand -->
           <div class="flex-shrink-0 flex items-center gap-2 md:gap-4">
             <img
               src="./assets/images/logo.jpeg"
@@ -121,6 +122,15 @@
         </div>
       </div>
     </header>
+
+    <!-- صورة الإعلان أسفل الهيدر مباشرة -->
+    <div class="w-full flex-none">
+      <img
+        src="./assets/images/bg.jpeg"
+        alt="Advertisement Banner"
+        class="w-full h-auto block"
+      />
+    </div>
 
     <main
       class="flex-grow flex flex-col items-center justify-center p-4 sm:p-6 w-full max-w-3xl mx-auto"
@@ -179,7 +189,6 @@
           </div>
         </div>
 
-        <!-- Step 2 -->
         <div id="step-2" class="step-block hidden text-center px-2">
           <h2
             class="text-3xl sm:text-5xl md:text-6xl font-extrabold text-gray-900 mb-2 md:mb-4 leading-tight"
@@ -319,7 +328,6 @@
         );
         const indicatorText = document.getElementById("step-indicator-text");
 
-        // Fade out current step
         currentContainer.classList.remove("animate-fade-in");
         currentContainer.classList.add("animate-fade-out");
 
@@ -353,7 +361,6 @@
           zIndex: 1000,
         };
 
-        // Colors matching the brand
         const colors = ["#005B8F", "#7AB800", "#FCD34D", "#FFFFFF"];
 
         function randomInRange(min, max) {
