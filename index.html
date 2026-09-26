@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>Hope Trust | Claim Your Reward</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              barlow: ['"Barlow Condensed"', "sans-serif"],
+              inter: ["Inter", "sans-serif"],
+            },
+            colors: {
+              hope: {
+                blue: "#005B8F",
+                green: "#7AB800",
+              },
+            },
+            animation: {
+              radar: "radar 2s ease-out infinite",
+              "fade-in": "fadeIn 0.4s ease-out forwards",
+              "fade-out": "fadeOut 0.3s ease-in forwards",
+            },
+            keyframes: {
+              radar: {
+                "0%": { transform: "scale(1)", opacity: "0.6" },
+                "100%": { transform: "scale(1.08)", opacity: "0" },
+              },
+              fadeIn: {
+                "0%": { opacity: "0", transform: "translateY(10px)" },
+                "100%": { opacity: "1", transform: "translateY(0)" },
+              },
+              fadeOut: {
+                "0%": { opacity: "1", transform: "translateY(0)" },
+                "100%": { opacity: "0", transform: "translateY(-10px)" },
+              },
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #ffffff;
+        color: #171717;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: '"Barlow Condensed"', sans-serif;
+        text-transform: uppercase;
+      }
+
+      /* STRICT FLAT DESIGN RULE: NO SHADOWS ALLOWED ANYWHERE */
+      * {
+        box-shadow: none !important;
+      }
+    </style>
+  </head>
+  <body class="h-[100dvh] w-full flex flex-col relative overflow-hidden">
+    <header class="w-full bg-white border-b-2 border-gray-100 flex-none">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-24 md:h-28">
+          <!-- Logo & Brand (تم تكبير اللوجو هنا) -->
+          <div class="flex-shrink-0 flex items-center gap-2 md:gap-4">
+            <img
+              src="./assets/images/logo.jpeg"
+              alt="Hope Trust Logo"
+              class="h-16 md:h-20 object-contain"
+            />
+          </div>
+
+          <!-- Navigation -->
+          <nav class="flex items-center space-x-4 sm:space-x-6 md:space-x-8">
+            <a
+              href="#"
+              class="text-gray-400 hover:text-hope-blue transition-colors text-xl md:text-2xl focus:outline-none"
+            >
+              <i class="fa-solid fa-user"></i>
+            </a>
+            <a
+              href="#"
+              class="text-gray-400 hover:text-hope-blue transition-colors text-xl md:text-2xl focus:outline-none"
+            >
+              <i class="fa-solid fa-globe"></i>
+            </a>
+            <a
+              href="#"
+              class="text-gray-400 hover:text-hope-blue transition-colors text-xl md:text-2xl focus:outline-none"
+            >
+              <i class="fa-solid fa-circle-info"></i>
+            </a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main
+      class="flex-grow flex flex-col items-center justify-center p-4 sm:p-6 w-full max-w-3xl mx-auto"
+    >
+      <div class="w-full relative py-4 md:py-12">
+        <!-- Step Indicator -->
+        <div
+          id="step-indicator-text"
+          class="text-center font-barlow font-bold text-hope-blue tracking-widest text-sm md:text-lg mb-4 md:mb-8 opacity-70"
+        >
+          QUESTION 1 OF 3
+        </div>
+
+        <!-- Step 1 -->
+        <div
+          id="step-1"
+          class="step-block block animate-fade-in text-center px-2"
+        >
+          <h1
+            class="text-3xl sm:text-5xl md:text-6xl font-extrabold text-gray-900 mb-2 md:mb-4 leading-tight"
+          >
+            What is your primary investment goal?
+          </h1>
+          <p class="text-gray-500 mb-6 md:mb-10 text-sm sm:text-lg md:text-xl">
+            Select the objective that best aligns with your financial future.
+          </p>
+
+          <div class="space-y-3 md:space-y-5">
+            <button
+              onclick="handleAnswer(1)"
+              class="w-full group px-4 md:px-8 py-3 md:py-5 border-2 border-hope-blue text-hope-blue bg-transparent rounded-full hover:bg-hope-blue hover:text-white transition-all duration-300 focus:outline-none text-center"
+            >
+              <span
+                class="font-barlow font-bold text-lg md:text-2xl tracking-wide uppercase"
+                >Capital Preservation</span
+              >
+            </button>
+            <button
+              onclick="handleAnswer(1)"
+              class="w-full group px-4 md:px-8 py-3 md:py-5 border-2 border-hope-blue text-hope-blue bg-transparent rounded-full hover:bg-hope-blue hover:text-white transition-all duration-300 focus:outline-none text-center"
+            >
+              <span
+                class="font-barlow font-bold text-lg md:text-2xl tracking-wide uppercase"
+                >Aggressive Growth</span
+              >
+            </button>
+            <button
+              onclick="handleAnswer(1)"
+              class="w-full group px-4 md:px-8 py-3 md:py-5 border-2 border-hope-blue text-hope-blue bg-transparent rounded-full hover:bg-hope-blue hover:text-white transition-all duration-300 focus:outline-none text-center"
+            >
+              <span
+                class="font-barlow font-bold text-lg md:text-2xl tracking-wide uppercase"
+                >Steady Income Generation</span
+              >
+            </button>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div id="step-2" class="step-block hidden text-center px-2">
+          <h2
+            class="text-3xl sm:text-5xl md:text-6xl font-extrabold text-gray-900 mb-2 md:mb-4 leading-tight"
+          >
+            What is your preferred timeline?
+          </h2>
+          <p class="text-gray-500 mb-6 md:mb-10 text-sm sm:text-lg md:text-xl">
+            Help us establish a tailored schedule for your portfolio.
+          </p>
+
+          <div class="space-y-3 md:space-y-5">
+            <button
+              onclick="handleAnswer(2)"
+              class="w-full group px-4 md:px-8 py-3 md:py-5 border-2 border-hope-blue text-hope-blue bg-transparent rounded-full hover:bg-hope-blue hover:text-white transition-all duration-300 focus:outline-none text-center"
+            >
+              <span
+                class="font-barlow font-bold text-lg md:text-2xl tracking-wide uppercase"
+                >Short Term (1-3 Years)</span
+              >
+            </button>
+            <button
+              onclick="handleAnswer(2)"
+              class="w-full group px-4 md:px-8 py-3 md:py-5 border-2 border-hope-blue text-hope-blue bg-transparent rounded-full hover:bg-hope-blue hover:text-white transition-all duration-300 focus:outline-none text-center"
+            >
+              <span
+                class="font-barlow font-bold text-lg md:text-2xl tracking-wide uppercase"
+                >Medium Term (3-7 Years)</span
+              >
+            </button>
+            <button
+              onclick="handleAnswer(2)"
+              class="w-full group px-4 md:px-8 py-3 md:py-5 border-2 border-hope-blue text-hope-blue bg-transparent rounded-full hover:bg-hope-blue hover:text-white transition-all duration-300 focus:outline-none text-center"
+            >
+              <span
+                class="font-barlow font-bold text-lg md:text-2xl tracking-wide uppercase"
+                >Long Term (7+ Years)</span
+              >
+            </button>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div id="step-3" class="step-block hidden text-center px-2">
+          <h2
+            class="text-3xl sm:text-5xl md:text-6xl font-extrabold text-gray-900 mb-2 md:mb-4 leading-tight"
+          >
+            How did you hear about us?
+          </h2>
+          <p class="text-gray-500 mb-6 md:mb-10 text-sm sm:text-lg md:text-xl">
+            This helps us understand our exclusive network reach.
+          </p>
+
+          <div class="space-y-3 md:space-y-5">
+            <button
+              onclick="handleAnswer(3)"
+              class="w-full group px-4 md:px-8 py-3 md:py-5 border-2 border-hope-blue text-hope-blue bg-transparent rounded-full hover:bg-hope-blue hover:text-white transition-all duration-300 focus:outline-none text-center"
+            >
+              <span
+                class="font-barlow font-bold text-lg md:text-2xl tracking-wide uppercase"
+                >Professional Referral</span
+              >
+            </button>
+            <button
+              onclick="handleAnswer(3)"
+              class="w-full group px-4 md:px-8 py-3 md:py-5 border-2 border-hope-blue text-hope-blue bg-transparent rounded-full hover:bg-hope-blue hover:text-white transition-all duration-300 focus:outline-none text-center"
+            >
+              <span
+                class="font-barlow font-bold text-lg md:text-2xl tracking-wide uppercase"
+                >Financial Publication</span
+              >
+            </button>
+            <button
+              onclick="handleAnswer(3)"
+              class="w-full group px-4 md:px-8 py-3 md:py-5 border-2 border-hope-blue text-hope-blue bg-transparent rounded-full hover:bg-hope-blue hover:text-white transition-all duration-300 focus:outline-none text-center"
+            >
+              <span
+                class="font-barlow font-bold text-lg md:text-2xl tracking-wide uppercase"
+                >Online Discovery</span
+              >
+            </button>
+          </div>
+        </div>
+
+        <!-- Success Step -->
+        <div
+          id="step-success"
+          class="step-block hidden text-center pt-2 md:pt-8 px-2"
+        >
+          <!-- Logo Image instead of the icon -->
+          <img
+            src="./assets/images/logo.jpeg"
+            alt="Hope Trust Logo"
+            class="h-20 md:h-32 object-contain mx-auto mb-4 md:mb-8"
+          />
+
+          <h2
+            class="text-4xl sm:text-6xl md:text-8xl font-extrabold text-gray-900 mb-2 md:mb-4 tracking-tight font-barlow"
+          >
+            CONGRATULATIONS
+          </h2>
+          <p
+            class="text-base sm:text-xl md:text-2xl text-gray-600 mb-6 md:mb-12 max-w-xl mx-auto"
+          >
+            Your profile has been successfully verified. You are now exclusively
+            eligible for our premium partner rewards.
+          </p>
+
+          <!-- Radar Animated CTA Button -->
+          <div class="relative w-full sm:w-auto inline-flex justify-center">
+            <!-- Radar ring -->
+            <span
+              class="absolute inline-flex h-full w-full rounded-full bg-hope-blue opacity-40 animate-radar"
+            ></span>
+
+            <!-- Actual Button linked to Google -->
+            <a
+              href="https://www.google.com"
+              target="_blank"
+              class="relative w-full sm:w-auto flex items-center justify-center bg-hope-blue hover:bg-[#004B7A] text-white rounded-full px-8 md:px-12 py-3 md:py-5 font-barlow font-bold text-xl md:text-3xl tracking-widest gap-3 md:gap-4 transition-colors"
+            >
+              <span>CLAIM PRIZE</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      const totalSteps = 3;
+
+      function handleAnswer(step) {
+        const currentContainer = document.getElementById(`step-${step}`);
+        const nextStepNum = step + 1;
+        const nextContainer = document.getElementById(
+          nextStepNum <= totalSteps ? `step-${nextStepNum}` : "step-success",
+        );
+        const indicatorText = document.getElementById("step-indicator-text");
+
+        // Fade out current step
+        currentContainer.classList.remove("animate-fade-in");
+        currentContainer.classList.add("animate-fade-out");
+
+        setTimeout(() => {
+          currentContainer.classList.remove("block");
+          currentContainer.classList.add("hidden");
+          currentContainer.classList.remove("animate-fade-out");
+
+          if (nextStepNum <= totalSteps) {
+            indicatorText.innerText = `QUESTION ${nextStepNum} OF ${totalSteps}`;
+          } else {
+            indicatorText.style.display = "none";
+          }
+
+          nextContainer.classList.remove("hidden");
+          nextContainer.classList.add("block", "animate-fade-in");
+
+          if (nextStepNum > totalSteps) {
+            launchFireworks();
+          }
+        }, 300);
+      }
+
+      function launchFireworks() {
+        const duration = 5 * 1000;
+        const animationEnd = Date.now() + duration;
+        const defaults = {
+          startVelocity: 30,
+          spread: 360,
+          ticks: 60,
+          zIndex: 1000,
+        };
+
+        // Colors matching the brand
+        const colors = ["#005B8F", "#7AB800", "#FCD34D", "#FFFFFF"];
+
+        function randomInRange(min, max) {
+          return Math.random() * (max - min) + min;
+        }
+
+        const interval = setInterval(function () {
+          const timeLeft = animationEnd - Date.now();
+
+          if (timeLeft <= 0) {
+            return clearInterval(interval);
+          }
+
+          const particleCount = 50 * (timeLeft / duration);
+
+          confetti(
+            Object.assign({}, defaults, {
+              particleCount,
+              origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 },
+              colors: colors,
+              shapes: ["circle", "square"],
+            }),
+          );
+
+          confetti(
+            Object.assign({}, defaults, {
+              particleCount,
+              origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 },
+              colors: colors,
+              shapes: ["circle", "square"],
+            }),
+          );
+        }, 250);
+      }
+    </script>
+  </body>
+</html>
